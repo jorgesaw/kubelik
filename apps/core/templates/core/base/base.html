@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="Jorge Adrián Gonzalez, desarrollador Web Freelance, programación y desarrollo de sitios web">
+  <meta name="keywords" content="desarrollador web freelance, programación web, programación freelance, programador python, programador Django, programadores web, programador web en Argentina, programador web en Latinoamérica, programador freelance en España">
+  <meta name="author" content="jorgesaw">
+  <link rel="shortcut icon" href="{% static 'core/img/placeholder.png' %}">
+
+  <title>{% block title %}{% endblock %} | Kubelik</title>
+    <!-- Fonts -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet"> -->
+    {% include 'core/includes/fonts.html' %}
+    
+    <!-- Archivos de fuentes propios de cada página -->
+    {% block fonts_page %}{% endblock %}
+
+    <!-- Styles -->
+     {% include 'core/includes/css.html' %} 
+     {% include 'core/includes/custom_css.html' %}
+     
+     <!-- Archivos css propios de cada página --> 
+     {% block css_page %}{% endblock %}
+
+     <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  {% block body_page %}
+  <body>
+    <!-- START: header -->
+    <div class="probootstrap-loader"></div>
+
+    {% include 'core/includes/header.html' %}
+    <!-- END: header -->
+
+    <!-- START: content -->
+    <div class="probootstrap-main">
+
+      {% block content %}{% endblock %}
+    
+    </div>
+    <!-- END: content -->
+
+    <!-- START: footter -->
+    {% include 'core/includes/footer.html' %}
+    <!-- END: footter -->
+
+    <div class="gototop js-top">
+      <a href="#" class="js-gotop"><i class="icon-chevron-thin-up"></i></a>
+    </div>
+
+    <!-- Javascript -->
+    {% include 'core/includes/js.html' %}
+    {% include 'core/includes/custom_js.html' %}
+    <!-- Archivos js propios de cada página -->
+    {% block js_page %}{% endblock %}
+  </body>
+{% endblock %}
+</html>

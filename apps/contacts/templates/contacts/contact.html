@@ -1,0 +1,74 @@
+{% extends 'core/base/base.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+		{% if messages %}
+				{% for message in messages %}
+					<div class="mr-md-3 text-center bg-{% if message.tags %}{{ message.tags }}{% endif %}">
+					<button type="button" class="close" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>{{ message }}
+					</div>
+				
+				{% endfor %}
+		{% endif %}
+	<section class="probootstrap-section-half probootstrap-no-hover">
+      <div class="probootstrap-image" style="background-image: url({% static 'core/img/image_1.jpg' %})"></div>
+      <div class="probootstrap-text">
+        <div class="probootstrap-inner probootstrap-animate">
+          <h1 class="heading">Contáctame</h1>
+          <p>Si quiere saber más, puedes consultar algunos de mis proyectos o leer mi blog.</p>
+		  <p>También puedes enviarme un correo electrónico a: <strong>jorgesaw@gmail.com</strong></p>
+		  <p>o bien puedes llamarme a: <strong>+54 (9) 336 4350723</strong></p>
+		  <p>También puedes mandarme un mensaje desde la misma web:</p>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+	<section class="probootstrap-section probootstrap-animate">
+      <div class="container">
+        <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <form action="#" method="post" class="probootstrap-form probootstrap-form-box mb60">{% csrf_token %}
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="first_name">Nombre</label>
+                  	{{ form.first_name }}
+					<!--<input type="text" class="form-control" id="fname" name="fname">-->
+					{{ form.first_name.errors }}                
+				</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="last_name">Apellido</label>
+					{{ form.last_name }}
+                  <!--<input type="text" class="form-control" id="lname" name="lname">-->
+					{{ form.last_name.errors }}
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+				{{ form.email }}
+              <!--<input type="email" class="form-control" id="email" name="email">-->
+				{{ form.email.errors }}
+            </div>
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+				{{ form.message }}
+              <!--<textarea cols="30" rows="10" class="form-control" id="message" name="message"></textarea>-->
+				{{ form.message.errors }}
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" id="submit" name="submit" value="Enviar mensaje">
+            </div>
+          </form>
+        </div>        
+
+        </div>
+      </div>
+    </section>
+  <!-- END section -->
+{% endblock %}

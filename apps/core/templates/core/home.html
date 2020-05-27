@@ -1,0 +1,23 @@
+{% extends 'core/base/base.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <section class="probootstrap-section-half">
+      <div class="probootstrap-image probootstrap-animate" data-animate-effect="fadeIn" style="background-image: url({% static 'core/img/image_1.jpg' %})"></div>
+      <div class="probootstrap-text">
+        <div class="probootstrap-inner probootstrap-animate">
+          <h1 class="heading">Hola!</h1>
+          <p>Mi nombre es Jorge.</p>
+		  <p>Soy un desarrollador web de Buenos Aires, Argentina.</p>
+		  <p>Desde 2014, he estado ayudando a muchos clientes para que trabajen con aplicaciones funcionales para sus negocios. Principalmente trabajo con herramientas y marcos modernos como Python, Django, Django CMS, PyQt</p>
+		  <p>Lee más <a href="{% url 'core:about' %}">sobre mi</a>, o revisa algunos de <a href="{% url 'core:home' %}">mis proyectos</a>.</p>
+          	<ul class="probootstrap-social text-center">
+				{%for link in links %}
+					<li><a href="{{ link.url }}"><i class="{{ link.icon_class_css }}"></i></a></li>
+				{% endfor %}
+			</ul>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->  
+{% endblock %}

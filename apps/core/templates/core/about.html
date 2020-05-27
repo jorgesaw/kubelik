@@ -1,0 +1,62 @@
+{% extends 'core/base/base.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block active_css %}active{% endblock %}
+{% block content %}
+  <section class="probootstrap-section-half probootstrap-no-hover">
+    <div class="probootstrap-image" style="background-image: url({% static 'core/img/image_2.jpg' %})"></div>
+    <div class="probootstrap-text">
+      <div class="probootstrap-inner probootstrap-animate">
+        <h1 class="heading">Acerca de</h1>
+        <p>Soy un Analista de Sistemas y autodidacta. Comencé a codificar hace más de 11 años y pronto convirtió en una pasión. He estado trabajando de manera independiente desde 2014.</p>
+    <p>Trabajo, principalmente con desarrollos backend en Python y Django. También trabajo con HTML, CSS, Java Script. Mis clientes suelen ser negocios y empresas locales.</p>
+    <p>Me encantan los desafíos, los nuevos proyectos y la resolución de problemas.</p>
+    <p>Ah! También soy profesor de Matemáticas!</p>
+      </div>
+    </div>
+  </section>
+  <!-- END section -->
+	<section class="probootstrap-section">
+      <div class="container">
+        <div class="row mb70 probootstrap-animate" data-animate-effect="fadeIn">
+          <div class="col-md-6">
+            <div class="service left-icon probootstrap-animate fadeInUp probootstrap-animated">
+              <div class="icon">
+                <i class="icon-laptop3"></i>
+              </div>
+              <div class="text">
+                <h3 class="heading">Herramientas y frameworks favoritos</h3>
+                <ul>
+                  <li>Python</li>
+                  <li>HTML5 / CSS3</li>
+                  <li>Java Script</li>
+                  <li>Bootstrap / Bulma</li>
+                  <li>Git</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+		      <div class="col-md-6">
+            <div class="service left-icon probootstrap-animate fadeInUp probootstrap-animated">
+            <div class="icon">
+              <i class="icon-text"></i>
+            </div>
+            <div class="text">
+              <h3 class="heading">Otras herramientas</h3>
+              <ul>
+                  <li>Java Script</li>
+                <li>Bootstrap / Bulma</li>
+                <li>Django CMS</li>
+                <li>JQuery</li>
+                <li>React</li>
+              </ul>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <!-- END container -->
+    </section>
+    <!-- END section -->
+
+{% endblock %}

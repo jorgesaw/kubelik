@@ -1,0 +1,34 @@
+{% extends 'core/base/base.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <section class="probootstrap-section-half">
+      <div class="probootstrap-image probootstrap-animate" data-animate-effect="fadeIn" style="background-image: url({% static 'core/img/image_1.jpg' %})"></div>
+      <div class="probootstrap-text">
+        <div class="probootstrap-inner probootstrap-animate">
+          <h1 class="heading">Proyectos</h1>
+		  <p>Mi trabajo comprende aplicaciones desde sitios Web dinámicos auto-administrables como e-commerce, sitios personales con páginas institucionales dinámicas y aplicaciones comerciales, hasta sistemas de gestión, intranets, entre otros. </p>
+          <p>Aquí hay una muestra de algunos proyectos en los que he trabajado. Si desea saber más, ¡no dudes en 
+			<a href="{% url 'contacts:contact' %}">contactarme</a>!</p>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+	{% if object_list %}
+		{% for object in object_list %}
+		<section class="probootstrap-section-half {% cycle 'probootstrap-reverse' '' %}">
+		  <div class="probootstrap-image probootstrap-animate"  data-animate-effect="fadeIn" style="background-image: url({%if object.image %} {{ object.image.url }} {% else %} static 'core/img/image_1.jpg' {% endif %})"></div>
+		  <div class="probootstrap-text">
+		    <div class="probootstrap-inner probootstrap-animate">
+		      <h1 class="heading">{{ object.title }}</h1>
+		      {{ object.content|safe }}
+			  {% if object.url_code %}
+			      <p><a href="{%{{ object.url_code }}" class="btn btn-primary">Ver código fuente</a></p>
+			  {% endif %}		
+		    </div>
+		  </div>
+		</section>
+		<!-- END section -->
+		{% endfor %}
+	{% endif %}
+{% endblock %}

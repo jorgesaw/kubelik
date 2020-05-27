@@ -1,0 +1,29 @@
+{% load static %}
+<header role="banner" class="probootstrap-header">
+	<div class="container">
+		<a href="{% url 'core:home' %}" class="probootstrap-logo" style="background-image: url({% static 'core/img/image_1.jpg' %})">KUBELIK</a>
+		<a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
+		<div class="mobile-menu-overlay"></div>
+
+		<nav role="navigation" class="probootstrap-nav hidden-xs">
+		  <ul class="probootstrap-main-nav">
+		    <li class="{% if request.path == '/' %} active {% endif %}"><a href="{% url 'core:home' %}">Home</a></li>
+		    <li class="{% if '/projects/' in request.path %} active {% endif %}"><a href="{% url 'projects:projects' %}">Portfolio</a></li>
+		    <li class="{% if '/about/' in request.path %} active {% endif %}"><a href="{% url 'core:about' %}">About</a></li>
+		    <li class="{% if '/contact/' in request.path %} active {% endif %}"><a href="{% url 'contacts:contact' %}">Contact</a></li>
+		  </ul>
+		  <div class="extra-text visible-xs"> 
+		    <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
+		    <h5>Dirección</h5>
+		    <p>Rivadavia 539, San Nicolás Buenos Aires</p>
+		    <h5>KUBELIK</h5>
+		    <ul class="social-buttons">
+				<li><a href="https://www.linkedin.com/in/jorgesaw/"><i class="icon-linkedin"></i></a></li>
+		        <li><a href="https://twitter.com/_jorgesaw"><i class="icon-twitter"></i></a></li>
+		        <li><a href="https://github.com/jorgesaw"><i class="icon-github"></i></a></li>
+		      	<li><a href="mailto:jorgesaw@gmail.com"><i class="icon-mail"></i></a></li>
+		    </ul>
+		  </div>
+		</nav>
+	</div>
+</header>
